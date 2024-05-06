@@ -47,6 +47,7 @@ button {
   grid-template-columns: auto auto auto;
   gap: 20px;
   background-color: black;
+  margin-top: 25px;
 }
 .zero {
   border: 5px solid black;
