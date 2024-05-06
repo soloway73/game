@@ -21,10 +21,13 @@ player.textContent = "крестик";
 let crossPlayerPositions = [];
 let zeroPlayerPositions = [];
 
+const markSound = new Audio();
+markSound.src = "pau.mp3";
 const audio = new Audio(); // Создаём новый элемент Audio
 audio.src = "music.mp3"; // Указываем путь к звуку "клика"
 
 function soundGameOver() {
+  audio.currentTime = 0;
   audio.play(); // Автоматически запускаем
 }
 
@@ -45,7 +48,6 @@ restartBtn.onclick = () => restart();
 closeBtn.onclick = () => {
   gameOver.style.display = "none";
   audio.pause();
-  audio.currentTime = 0;
 };
 const checkWinner = (playerPosition) => {
   for (let j = 0; j < winnerPositionsArray.length; j++) {
@@ -75,6 +77,7 @@ const checkDraw = () => {
 
 for (let i = 0; i < square.length; i++) {
   square[i].onclick = function () {
+    markSound.play();
     let newMark = document.createElement("div");
     if (nextMark === "cross") {
       newMark.classList.add(nextMark);
