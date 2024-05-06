@@ -5,11 +5,20 @@ body {
   align-content: center;
   align-items: center;
 }
+button {
+  cursor: pointer;
+}
+.restartBtn {
+  background-color: black;
+  color: #ffffff;
+  font-size: 25px;
+}
 .square {
   width: 80px;
   height: 80px;
-  background-color: #ff7a7a;
+  background-color: #ffffff;
   position: relative;
+  cursor: pointer;
 }
 .square:hover {
   filter: brightness(80%);
@@ -33,6 +42,7 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
+  background-color: black;
 }
 .zero {
   border: 5px solid black;
@@ -72,18 +82,18 @@ body {
   width: 400px;
   height: 400px;
   transform: translate(50% 50%);
-  background-color: #ff4545;
+  background-color: #000000;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 25px;
 }
 .restartBtn2 {
   margin-top: 50px;
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 15%;
   font-size: 40px;

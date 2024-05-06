@@ -15,10 +15,18 @@ let player = document.querySelector(".player");
 let gameOver = document.querySelector(".gameOver");
 let nextMark = "cross";
 let closeBtn = document.querySelector(".restartBtn2");
+
 player.textContent = "крестик";
 
 let crossPlayerPositions = [];
 let zeroPlayerPositions = [];
+
+const audio = new Audio(); // Создаём новый элемент Audio
+audio.src = "music.mp3"; // Указываем путь к звуку "клика"
+
+function soundGameOver() {
+  audio.play(); // Автоматически запускаем
+}
 
 let restart = () => {
   for (let i = 0; i < square.length; i++) {
@@ -36,6 +44,8 @@ let restart = () => {
 restartBtn.onclick = () => restart();
 closeBtn.onclick = () => {
   gameOver.style.display = "none";
+  audio.pause();
+  audio.currentTime = 0;
 };
 const checkWinner = (playerPosition) => {
   for (let j = 0; j < winnerPositionsArray.length; j++) {
@@ -46,7 +56,9 @@ const checkWinner = (playerPosition) => {
       }
 
       if (hitCounter === 3) {
+        audio.currentTime = 0;
         restart();
+        soundGameOver();
         return true;
       }
     }
@@ -59,6 +71,7 @@ const checkDraw = () => {
     gameOver.style.display = "flex";
   }
 };
+
 for (let i = 0; i < square.length; i++) {
   square[i].onclick = function () {
     let newMark = document.createElement("div");
