@@ -69,6 +69,7 @@ const checkDraw = () => {
     restart();
     gameOver.querySelector(".message").textContent = "НИЧЬЯ";
     gameOver.style.display = "flex";
+    soundGameOver();
   }
 };
 
