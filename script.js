@@ -21,6 +21,8 @@ player.textContent = "крестик";
 let crossPlayerPositions = [];
 let zeroPlayerPositions = [];
 
+const markSoundZero = new Audio();
+markSoundZero.src = "pauZero.mp3";
 const markSound = new Audio();
 markSound.src = "pau.mp3";
 const audio = new Audio(); // Создаём новый элемент Audio
@@ -77,9 +79,9 @@ const checkDraw = () => {
 
 for (let i = 0; i < square.length; i++) {
   square[i].onclick = function () {
-    markSound.play();
     let newMark = document.createElement("div");
     if (nextMark === "cross") {
+      markSound.play();
       newMark.classList.add(nextMark);
       square[i].appendChild(newMark);
 
@@ -95,6 +97,7 @@ for (let i = 0; i < square.length; i++) {
         checkDraw();
       }
     } else {
+      markSoundZero.play();
       newMark.classList.add(nextMark);
       square[i].appendChild(newMark);
 
